@@ -45,5 +45,3 @@ if __name__ == "__main__":
     data_outer = get_data()
     save_to_db(data_outer)
     send_email("admin@example.com", "User Input", user_input_outer)
-
-eval("2 + 2")  # triggers Bandit
