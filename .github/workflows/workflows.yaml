@@ -34,11 +34,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Python security scan
-      - name: Bandit Scan
-        uses: mdegis/bandit-action@851671cb116c1d3638de86975006bddf2619362a #v1.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          path: "."
-          level: high
-          confidence: high
-          exit_zero: true
+      - name: Bandit Scanning
+        uses: shundor/python-bandit-scan@ab1d87dfccc5a0ffab88be3aaac6ffe35c10d6cd #v1.0
