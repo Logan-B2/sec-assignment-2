@@ -3,16 +3,17 @@ Assignment 2 Code Scanning (Assignment 1 Code Example)
 """
 
 import subprocess
-import requests
+
 import pymysql
+import requests
 
 db_config = {"host": "mydatabase.com", "user": "admin", "password": "secret123"}
 
 
 def get_user_input():
     """Prompt user for their name and return it."""
-    user_input = input("Enter your name: ")
-    return user_input
+    user_name = input("Enter your name: ")
+    return user_name
 
 
 def send_email(to, subject, body):
