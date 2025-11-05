@@ -2,8 +2,8 @@
 name: Lint # GitHub Super Linter
 
 on: # yamllint disable-line rule:truthy
-  push: null
-  pull_request: null
+  push: {}
+  pull_request: {}
 
 permissions: {}
 
@@ -15,20 +15,16 @@ jobs:
     permissions:
       contents: read
       packages: read
-      # To report GitHub Actions status checks
-      statuses: write
+      statuses: write # To report GitHub Actions status checks
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
         with:
-          # super-linter needs the full git history to get the
-          # list of files that changed across commits
-          fetch-depth: 0
+          fetch-depth: 0 # super-linter needs the full git history to get the list of files that changed across commits
           persist-credentials: false
 
       - name: Super-linter
-        uses: super-linter/super-linter@v8.2.1 # x-release-please-version
+        uses: super-linter/super-linter@c11bb7f7a434f9a99e2258e7b8a423fe97bb54e1 # v8.2.1
         env:
-          # To report GitHub Actions status checks
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # To report GitHub Actions status checks
