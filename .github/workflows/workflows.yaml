@@ -15,24 +15,29 @@ jobs:
     permissions:
       contents: read
       packages: read
-      statuses: write # To report GitHub Actions status checks
+      # To report GitHub Actions status checks
+      statuses: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
         with:
-          fetch-depth: 0 # super-linter needs the full git history to get the list of files that changed across commits
+          # super-linter needs the full git history to get the
+          # list of files that changed across commits
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Super-linter
         uses: super-linter/super-linter@2bdd90ed3262e023ac84bf8fe35dc480721fc1f2 # v8.2.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # To report GitHub Actions status checks 
+          # To report GitHub Actions status checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-        name: Bandit
+      # Python security scan
+      - name: Bandit
         uses: shundor/bandit-action@v1
-        with: 
-            path: "."
-            level: high
-            confidence: high
-            exit_zero: true          
+        with:
+          path: "."
+          level: high
+          confidence: high
+          exit_zero: true
