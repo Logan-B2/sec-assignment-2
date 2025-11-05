@@ -5,7 +5,8 @@ on: # yamllint disable-line rule:truthy
   push: {}
   pull_request: {}
 
-permissions: {}
+permissions: 
+  security-events: read
 
 jobs:
   build:
