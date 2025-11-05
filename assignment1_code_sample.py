@@ -17,9 +17,12 @@ def get_user_input():
 
 
 def send_email(to, subject, body):
-    """Send an email safely using subprocess without shell=True."""
+    """Send an email safely using subprocess"""
+
+    mail_cmd = ["/usr/bin/mail", "-s", subject, to]
+
     subprocess.run(
-        ["mail", "-s", subject, to],
+        mail_cmd,
         input=body.encode("utf-8"),
         check=True,
     )
@@ -28,12 +31,13 @@ def send_email(to, subject, body):
 def get_data():
     """Fetch data from API safely using requests."""
     url = "http://insecure-api.com/get-data"
-    # validate URL scheme
-    if not url.startswith(("http://", "https://")):
-        raise ValueError("Invalid URL scheme")
-    response = requests.get(url)
-    response.raise_for_status()
-    return response.text
+    try:
+        response = requests.get(url, timeout=5)
+        response.raise_for_status()
+        return response.text
+    except requests.RequestException as e:
+        print(f"Error fetching data: {e}")
+        return ""
 
 
 def save_to_db(data_param):
