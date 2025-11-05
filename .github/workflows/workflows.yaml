@@ -1,5 +1,5 @@
 ---
-name: Lint # GitHub Super Linter
+name: Lint # GitHub Super Linter .
 
 on: # yamllint disable-line rule:truthy
   push: {}
