@@ -35,4 +35,4 @@ jobs:
 
       # Python security scan
       - name: Bandit Scanning
-        uses: shundor/python-bandit-scan@ab1d87dfccc5a0ffab88be3aaac6ffe35c10d6cd #v1.0
+        uses: shundor/python-bandit-scan@ab1d87dfccc5a0ffab88be3aaac6ffe35c10d6cd
