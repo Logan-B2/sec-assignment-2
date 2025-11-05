@@ -2,7 +2,7 @@
 Assignment 2 Code Scanning (Assignment 1 Code Example)
 """
 
-import os
+import subprocess
 from urllib.request import urlopen
 
 import pymysql
@@ -18,7 +18,12 @@ def get_user_input():
 
 def send_email(to, subject, body):
     """Send an email using os.system."""
-    os.system(f'echo {body} | mail -s "{subject}" {to}')
+
+    subprocess.run(
+        ["mail", "-s", subject, to],
+        input=body.encode("utf-8"),
+        check=True,
+    )
 
 
 def get_data():
