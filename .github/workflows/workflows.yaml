@@ -27,4 +27,12 @@ jobs:
       - name: Super-linter
         uses: super-linter/super-linter@2bdd90ed3262e023ac84bf8fe35dc480721fc1f2 # v8.2.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # To report GitHub Actions status checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # To report GitHub Actions status checks 
+
+        name: Bandit
+        uses: shundor/bandit-action@v1
+        with: 
+            path: "."
+            level: high
+            confidence: high
+            exit_zero: true          
