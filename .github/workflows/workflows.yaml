@@ -5,6 +5,8 @@ on: # yamllint disable-line rule:truthy
   push: {}
   pull_request: {}
 
+permissions: {}
+
 jobs:
   build:
     name: Lint
@@ -13,9 +15,9 @@ jobs:
     permissions:
       contents: read
       packages: read
-      security-events: write
       # To report GitHub Actions status checks
       statuses: write
+      security-events: write
 
     steps:
       - name: Checkout code
