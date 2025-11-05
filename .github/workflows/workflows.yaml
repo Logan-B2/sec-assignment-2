@@ -7,6 +7,7 @@ on: # yamllint disable-line rule:truthy
 
 permissions:
   security-events: read
+  security-events: write
 
 jobs:
   build:
@@ -39,6 +40,6 @@ jobs:
         uses: shundor/python-bandit-scan@ab1d87dfccc5a0ffab88be3aaac6ffe35c10d6cd
         with:
           path: "."
-          level: high
-          confidence: high
+          level: low
+          confidence: low
           exit_zero: false
