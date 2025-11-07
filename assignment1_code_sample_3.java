@@ -15,7 +15,7 @@ import java.util.Scanner;
  * Example Java application demonstrating user input, API calls,
  * email sending, and database storage.
  */
-private VulnerableApp() {
+public class VulnerableApp {
 
     /** Database URL. */
     private static final String DB_URL = "jdbc:mysql://mydatabase.com/mydb";
@@ -25,6 +25,9 @@ private VulnerableApp() {
 
     /** Database password. */
     private static final String DB_PASSWORD = "secret123";
+
+    /** Private constructor to satisfy Checkstyle utility class rule. */
+    private VulnerableApp() { }
 
     /**
      * Prompt user for their name and return it.
