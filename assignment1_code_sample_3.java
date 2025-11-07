@@ -1,4 +1,4 @@
-package assignment3.linted;
+package assignment.linted;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -15,7 +15,7 @@ import java.util.Scanner;
  * Example Java application demonstrating user input, API calls,
  * email sending, and database storage.
  */
-public class VulnerableApp {
+public final class VulnerableApp {
 
     /** Database URL. */
     private static final String DB_URL = "jdbc:mysql://mydatabase.com/mydb";
