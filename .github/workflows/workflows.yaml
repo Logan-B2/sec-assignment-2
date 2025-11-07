@@ -30,13 +30,15 @@ jobs:
 
       - name: Install Node dependencies
         run: npm install
-        
+
       - name: Super-linter
         uses: super-linter/super-linter@2bdd90ed3262e023ac84bf8fe35dc480721fc1f2 # v8.2.1
         env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_BIOME: false
+          VALIDATE_JAVASCRIPT_BIOME: false
+          VALIDATE_TYPESCRIPT_BIOME: false
+
 
       # Python security scan
       - name: Bandit Scanning
