@@ -36,9 +36,7 @@ jobs:
         env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_JAVASCRIPT_BIOME: false
-          VALIDATE_TYPESCRIPT_BIOME: false
-
+          VALIDATE_BIOME_FORMAT: false
 
       # Python security scan
       - name: Bandit Scanning
