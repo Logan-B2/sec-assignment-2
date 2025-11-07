@@ -1,4 +1,4 @@
 /**
  * This is the unsafe app used for assignment 2 and 1.
  */
-package assignment3;
+package assignment3.linted;

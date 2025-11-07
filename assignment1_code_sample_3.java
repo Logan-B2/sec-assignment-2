@@ -1,4 +1,4 @@
-package assignment3;
+package assignment3.linted;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -15,7 +15,7 @@ import java.util.Scanner;
  * Example Java application demonstrating user input, API calls,
  * email sending, and database storage.
  */
-public class VulnerableApp {
+private VulnerableApp() {
 
     /** Database URL. */
     private static final String DB_URL = "jdbc:mysql://mydatabase.com/mydb";
@@ -44,7 +44,8 @@ public class VulnerableApp {
      * @param subject email subject
      * @param body    email body
      */
-    public static void sendEmail(final String to, final String subject, final String body) {
+    public static void sendEmail(
+        final String to, final String subject, final String body) {
         try {
             String command = String.format(
                 "echo %s | mail -s \"%s\" %s",
@@ -99,7 +100,8 @@ public class VulnerableApp {
             + data + "', 'Another Value')";
 
         try (
-            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            Connection conn = DriverManager.getConnection(
+                DB_URL, DB_USER, DB_PASSWORD);
             Statement stmt = conn.createStatement()
         ) {
             stmt.executeUpdate(query);
